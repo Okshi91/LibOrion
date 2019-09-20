@@ -19,7 +19,7 @@
 package orion.number;
 
 /**
- * An X and a Y co-ordinate
+ * An X and a Y integer co-ordinate
  * @author Orion
  */
 public class Vector2I {
