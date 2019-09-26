@@ -121,6 +121,7 @@ public class Vector2 {
     }
     /**
      * Rotate the vector by angle theta around 0, 0
+     * @param theta the angle to rotate by
      */
     public void rotate(int theta){
         double newX = x * Math.cos(theta) - y * Math.sin(theta);
