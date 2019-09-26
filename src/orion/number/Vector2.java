@@ -97,11 +97,19 @@ public class Vector2 {
     }
     /**
      * 
-     * @param input The vector to add to this one
+     * @param input The vector to add to this one externally
      * @return the result vector
      */
-    public Vector2 add(Vector2 input){
+    public Vector2 transformExternal(Vector2 input){
         return new Vector2(this.getX() + input.getX(), this.getY() + input.getY());
+    }
+    /**
+     * 
+     * @param input The vector to add to this one
+     */
+    public void transform(Vector2 input){
+        x += input.getX();
+        y += input.getY();
     }
     /**
      * 
@@ -112,20 +120,11 @@ public class Vector2 {
         return (this.getX() == input.getX() && this.getY() == input.getY());
     }
     /**
-     * Rotate the vector 90 degrees clockwise around 0, 0
+     * Rotate the vector by angle theta around 0, 0
      */
-    public void rotateCW(){
-        double newX = y;
-        double newY = x;
-        x = newX;
-        y = newY;
-    }
-    /**
-     * Rotate the vector 90 degrees counterclockwise around 0, 0
-     */
-    public void rotateCCW(){
-        double newX = -y;
-        double newY = x;
+    public void rotate(int theta){
+        double newX = x * Math.cos(theta) - y * Math.sin(theta);
+        double newY = x * Math.sin(theta) + y * Math.cos(theta);
         x = newX;
         y = newY;
     }
