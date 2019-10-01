@@ -81,14 +81,14 @@ public class Vector2 {
         this.y = y;
     }
     /**
-     * 
+     * Set the position of this vector
      * @return the vector's current position, as an doubleeger array [x, y]
      */
     public double[] getPos() {
         return new double[] {x, y};
     }
     /**
-     * 
+     * Set the position of this vector
      * @param pos The vector's X and Y position, formatted [x, y] 
      */
     public void setPos(double[] pos) {
@@ -96,7 +96,7 @@ public class Vector2 {
         this.y = pos[1];
     }
     /**
-     * 
+     * Set the position of this vector
      * @param x The value to set X to
      * @param y The value to set Y to
      */
@@ -130,7 +130,7 @@ public class Vector2 {
         return new Vector2(this.x + x, this.y + y);
     }
     /**
-     * 
+     * Transform this vector
      * @param input The vector to transform this one by
      */
     public void transform(Vector2 input){
@@ -138,7 +138,7 @@ public class Vector2 {
         y += input.getY();
     }
     /**
-     * 
+     * Transform this vector
      * @param input The value pair to transform this vector by, as [x, y]
      */
     public void transform(double[] input){
@@ -146,7 +146,7 @@ public class Vector2 {
         y += input[1];
     }
     /**
-     * 
+     * Transform this vector
      * @param x Transform along the X axis
      * @param y Transform along the Y axis
      */
@@ -155,7 +155,7 @@ public class Vector2 {
         this.y += y;
     }
     /**
-     * 
+     * Compare this vector with another vector
      * @param input The vector to check this one against
      * @return If the vector is equivalent
      */
