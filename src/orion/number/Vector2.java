@@ -97,19 +97,62 @@ public class Vector2 {
     }
     /**
      * 
-     * @param input The vector to add to this one externally
+     * @param x The value to set X to
+     * @param y The value to set Y to
+     */
+    public void setPos(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+    /**
+     * Transform without changing this vector's value, usually used for checking a transform before committing to it
+     * @param input The vector to transform this one by externally
      * @return the result vector
      */
     public Vector2 transformExternal(Vector2 input){
         return new Vector2(this.getX() + input.getX(), this.getY() + input.getY());
     }
     /**
+     * Transform without changing this vector's value, usually used for checking a transform before committing to it
+     * @param input The value pair to transform this vector by, as [x, y]
+     * @return the result vector
+     */
+    public Vector2 transformExternal(double[] input){
+        return new Vector2(this.x + input[0], this.y + input[1]);
+    }
+    /**
+     * Transform without changing this vector's value, usually used for checking a transform before committing to it
+     * @param x Transform along the X axis
+     * @param y Transform along the Y axis
+     * @return the result vector
+     */
+    public Vector2 transformExternal(double x, double y){
+        return new Vector2(this.x + x, this.y + y);
+    }
+    /**
      * 
-     * @param input The vector to add to this one
+     * @param input The vector to transform this one by
      */
     public void transform(Vector2 input){
         x += input.getX();
         y += input.getY();
+    }
+    /**
+     * 
+     * @param input The value pair to transform this vector by, as [x, y]
+     */
+    public void transform(double[] input){
+        x += input[0];
+        y += input[1];
+    }
+    /**
+     * 
+     * @param x Transform along the X axis
+     * @param y Transform along the Y axis
+     */
+    public void transform(double x, double y){
+        this.x += x;
+        this.y += y;
     }
     /**
      * 
