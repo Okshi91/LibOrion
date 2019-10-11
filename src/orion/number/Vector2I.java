@@ -109,16 +109,16 @@ public class Vector2I {
      * @param input The vector to transform this one by externally
      * @return the result vector
      */
-    public Vector2 transformExternal(Vector2I input){
-        return new Vector2(this.getX() + input.getX(), this.getY() + input.getY());
+    public Vector2I transformExternal(Vector2I input){
+        return new Vector2I(this.getX() + input.getX(), this.getY() + input.getY());
     }
     /**
      * Transform without changing this vector's value, usually used for checking a transform before committing to it
      * @param input The value pair to transform this vector by, as [x, y]
      * @return the result vector
      */
-    public Vector2 transformExternal(int[] input){
-        return new Vector2(this.x + input[0], this.y + input[1]);
+    public Vector2I transformExternal(int[] input){
+        return new Vector2I(this.x + input[0], this.y + input[1]);
     }
     /**
      * Transform without changing this vector's value, usually used for checking a transform before committing to it
@@ -126,8 +126,8 @@ public class Vector2I {
      * @param y Transform along the Y axis
      * @return the result vector
      */
-    public Vector2 transformExternal(int x, int y){
-        return new Vector2(this.x + x, this.y + y);
+    public Vector2I transformExternal(int x, int y){
+        return new Vector2I(this.x + x, this.y + y);
     }
     /**
      * Transform this vector
