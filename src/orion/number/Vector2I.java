@@ -96,15 +96,66 @@ public class Vector2I {
         this.y = pos[1];
     }
     /**
-     * 
-     * @param input The vector to add to this one
-     * @return the result vector
+     * Set the position of this vector
+     * @param x The value to set X to
+     * @param y The value to set Y to
      */
-    public Vector2I add(Vector2I input){
-        return new Vector2I(this.getX() + input.getX(), this.getY() + input.getY());
+    public void setPos(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
     /**
-     * 
+     * Transform without changing this vector's value, usually used for checking a transform before committing to it
+     * @param input The vector to transform this one by externally
+     * @return the result vector
+     */
+    public Vector2 transformExternal(Vector2I input){
+        return new Vector2(this.getX() + input.getX(), this.getY() + input.getY());
+    }
+    /**
+     * Transform without changing this vector's value, usually used for checking a transform before committing to it
+     * @param input The value pair to transform this vector by, as [x, y]
+     * @return the result vector
+     */
+    public Vector2 transformExternal(int[] input){
+        return new Vector2(this.x + input[0], this.y + input[1]);
+    }
+    /**
+     * Transform without changing this vector's value, usually used for checking a transform before committing to it
+     * @param x Transform along the X axis
+     * @param y Transform along the Y axis
+     * @return the result vector
+     */
+    public Vector2 transformExternal(int x, int y){
+        return new Vector2(this.x + x, this.y + y);
+    }
+    /**
+     * Transform this vector
+     * @param input The vector to transform this one by
+     */
+    public void transform(Vector2I input){
+        x += input.getX();
+        y += input.getY();
+    }
+    /**
+     * Transform this vector
+     * @param input The value pair to transform this vector by, as [x, y]
+     */
+    public void transform(int[] input){
+        x += input[0];
+        y += input[1];
+    }
+    /**
+     * Transform this vector
+     * @param x Transform along the X axis
+     * @param y Transform along the Y axis
+     */
+    public void transform(int x, int y){
+        this.x += x;
+        this.y += y;
+    }
+    /**
+     * Compare this vector with another vector
      * @param input The vector to check this one against
      * @return If the vector is equivalent
      */
@@ -112,20 +163,12 @@ public class Vector2I {
         return (this.getX() == input.getX() && this.getY() == input.getY());
     }
     /**
-     * Rotate the vector 90 degrees clockwise around 0, 0
+     * Rotate the vector 90 degrees around 0, 0 an amount of time equal to clicks
+     * @param clicks how many times to rotate 90 degrees
      */
-    public void rotateCW(){
-        int newX = y;
-        int newY = x;
-        x = newX;
-        y = newY;
-    }
-    /**
-     * Rotate the vector 90 degrees counterclockwise around 0, 0
-     */
-    public void rotateCCW(){
-        int newX = -y;
-        int newY = x;
+    public void rotate(int clicks){
+        int newX = x * (int)Math.cos(90 * clicks) - y * (int)Math.sin(90 * clicks);
+        int newY = x * (int)Math.sin(90 * clicks) + y * (int)Math.cos(90 * clicks);
         x = newX;
         y = newY;
     }
