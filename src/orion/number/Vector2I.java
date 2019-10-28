@@ -167,8 +167,8 @@ public class Vector2I {
      * @param clicks how many times to rotate 90 degrees
      */
     public void rotate(int clicks){
-        int newX = x * (int)Math.cos(90 * clicks) - y * (int)Math.sin(90 * clicks);
-        int newY = x * (int)Math.sin(90 * clicks) + y * (int)Math.cos(90 * clicks);
+        int newX = (int)Math.round(x * Math.cos((Math.PI * clicks) / 2) - y * Math.sin((Math.PI * clicks) / 2) );
+        int newY = (int)Math.round(x * Math.sin((Math.PI * clicks) / 2) + y * Math.cos((Math.PI * clicks) / 2));
         x = newX;
         y = newY;
     }
